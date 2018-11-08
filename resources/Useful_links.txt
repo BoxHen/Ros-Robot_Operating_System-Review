@@ -1,0 +1,8 @@
+roscore errors: 
+	https://answers.ros.org/question/60366/problem-with-roscore/
+
+running ros code from editor/ide error:
+	https://answers.ros.org/question/41813/failed-to-contact-master-failure-by-starting-turtlesim/
+
+
+

@@ -1,0 +1,19 @@
+workspace: represents the working area that contains the file we need to run ros or ros application, and all workspaces have a setup bash and sh. bash must be executed to enable the workspace.
+	we do this with the command source. but a good practice is to write it into the .bashrc instead of doing it manually everytime
+	
+	roscd will take you to the default workspace
+
+	roscore starts the main node
+
+	when working in ros it is not common practice or convient to work in the default workspace so the common practice is to make your own work space
+
+	we can do this by creating a workspace for catkin(complation framework used by the ros env)
+	to create a catkin workspace, we make a new directory in the home folder (mkdir -p ~/catkin_ws/src)
+		src will contain the source files and packages for ros
+		wprkspace will be working area and packages will be your own individual projects
+		compile work space with catkin_make
+Packages
+	also your projects, and are defined in the workspace (in src folder)
+	creating a new package, use catkin_create_pkg
+	to finalize, go back to catkin workspace and use catkin_make
+	 
