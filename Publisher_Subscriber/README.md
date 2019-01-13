@@ -41,3 +41,7 @@ Shutting Down the Node
 	service calls, and service servers. By default Ctrl-C will automatically shutdown the node.
 	(SIGINT handler)
 
+Testing for Shutdown
+
+	You can use ros::ok() or ros::isShuttingDown() methods. ros::ok() returns false when the node finishes
+	shutting down. ros::isShuttingDown() will be true when ros::shutdown() is called, not when it is done. 
