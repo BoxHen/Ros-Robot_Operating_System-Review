@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# license removed for brevity
 import rospy #needed for all ROS Node
 from std_msgs.msg import String #allows reuse of std_msgs/String message type for publishing.
 
