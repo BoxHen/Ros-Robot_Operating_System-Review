@@ -9,6 +9,7 @@ x=0
 y=0
 z=0
 yaw=0
+#---------------------------------------------------------------------------
 def poseCallback(pose_message):
     global x
     global y, z, yaw
@@ -19,21 +20,27 @@ def poseCallback(pose_message):
     #print ('x = {}'.format(pose_message.x)) 
     #print ('y = %f' %pose_message.y) 
     #print ('yaw = {}'.format(pose_message.theta)) 
+#---------------------------------------------------------------------------
 def move(speed, distance):
         #declare a Twist message to send velocity commands
             velocity_message = Twist()
             #get current location 
             x0=x
             y0=y
-            #z0=z;
-            #yaw0=yaw;
-            velocity_message.linear.x =speed
+
+            #assign the x coordinate of linear velocity to the speed. 
+            velocity_message.linear.x = speed
+
             distance_moved = 0.0
             loop_rate = rospy.Rate(10) # we publish the velocity at 10 Hz (10 times a second)    
             cmd_vel_topic='/turtle1/cmd_vel'
+
+            #create a publisher for the velocity message on the appropriate topic.
             velocity_publisher = rospy.Publisher(cmd_vel_topic, Twist, queue_size=10)
             while True :
                     rospy.loginfo("Turtlesim moves forwards")
+
+                    #publish the velocity message 
                     velocity_publisher.publish(velocity_message)
                     loop_rate.sleep()
                     
@@ -48,17 +55,18 @@ def move(speed, distance):
             #finally, stop the robot when the distance is moved
             velocity_message.linear.x =0
             velocity_publisher.publish(velocity_message)
-    
-if __name__ == '__main__':
+#---------------------------------------------------------------------------
+if __name__ == '__main__': # if main program
     try:
         
         rospy.init_node('turtlesim_motion_pose', anonymous=True)
-        #declare velocity publisher
+
         cmd_vel_topic='/turtle1/cmd_vel'
         velocity_publisher = rospy.Publisher(cmd_vel_topic, Twist, queue_size=10)
         
         position_topic = "/turtle1/pose"
         pose_subscriber = rospy.Subscriber(position_topic, Pose, poseCallback) 
+
         time.sleep(2)
         print 'move: '
         move (1.0, 5.0)
@@ -72,3 +80,4 @@ if __name__ == '__main__':
        
     except rospy.ROSInterruptException:
         rospy.loginfo("node terminated.")
+
