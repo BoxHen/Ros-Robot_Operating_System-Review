@@ -1,0 +1,28 @@
+Display the list of services
+	rosservice list
+
+What is the command that shows the information of the service /reset
+	rosservice info /reset
+
+Write the result of the execution of the command for the service /reset
+	this will restart the turtlesim
+
+What is the command that shows the information of the service /kill
+	rosservice info /kill
+
+Write the result of the execution of the command for the service /kill
+	the result is that /kill will delete a service. For example, if we generate another 
+	turtle with /spawn, we can delete it will /kill 'name of turtle'.
+
+What is the command that shows the content of message turtlesim/Kill of the /kill service?
+	rossrv info turtlesim/Kill
+
+Spawn one additional turtle called tsim1. Write the command. 
+	rosservice call /spawn 7 7 0 tsim1
+
+use the service kill to kill tsim1.Write the command.  
+	rosservice call /kill tsim1
+	
+use the service reset to reset all the simulation. Write the command. 
+	rosservice call /reset
+
