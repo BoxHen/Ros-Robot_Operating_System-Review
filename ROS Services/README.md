@@ -2,6 +2,16 @@ ROS Service
 
 	A ROS Service is a ROS Server and ROS child
 	A service is not like a topic since a service is a one time communication 
+		-ROS topics look like this: publisher -> topic message -> subscriber
+		-ROS Services look like this:  server <- request message <- client
+		-			       server -> response message -> client
+
+	To create a client/server ros service app:
+		-define the service message(service file)
+		-create ros server node
+		-create ros client node
+		-execute the service
+		-consume the service by the node
 	
 	We can check ros services with "rosservice list"
 	get more info on ros services with "rosservice info 'service name'"
