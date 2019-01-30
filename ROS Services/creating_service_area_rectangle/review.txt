@@ -1,0 +1,67 @@
+1. What is the command used to create a ROS package called ros_service_assignment?
+Make sure to clarify the path where to create it.
+	first we cd into the catkin workspace (catkin_ws), go into src, and use the command 		catkin_create_pkg (will look like this: catkin_create_pkg ros_service_assignment rospy roscpp)
+
+2.What is the name of the folder when to create the service file?
+Provide the absolute path to the file (from the root).
+	That folder name is "srv". The path to that folder is typically:
+	Home/catkin_ws/src/ros_service_assignment/srv
+
+3.What is the content of the service file RectangleAreaService.srv?
+	It contains the parameters and the return:
+	float32 width
+	float32 height
+	---
+	float32 area
+
+4.What are the changes you need to do in the CMakeLists.txt. Copy/paste the whole CMakeLists.txt.
+	1. add message_generation:
+		find_package(catkin REQUIRED COMPONENTS
+  			roscpp
+  			rospy
+  			message_generation
+		)	
+	2. add service files:
+		add_service_files(
+  			FILES
+  			RectangleArea.srv
+		)
+
+		generate_messages(
+   			DEPENDENCIES
+   			std_msgs
+ 		)	
+
+5.What are the changes you need to do the package.xml? Copy/paste the whole package.xml.
+	we need to add two dependencies:
+		<build_depend>message_generation</build_depend>
+		<exec_depend>message_runtime</exec_depend>
+
+6.What is the command to build the new service and generate executable files?
+	first, cd into the catkin_ws folder and do "catkin_make"
+
+7.How to make sure that service files are now created?
+Note: please use {...} to format the instruction for better readability and make it easier for me to review.
+	to check we can use rossrv list. This will list all the services and we can check if our 		service exists.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
