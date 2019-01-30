@@ -33,9 +33,11 @@ Provide the absolute path to the file (from the root).
  		)	
 
 5.What are the changes you need to do the package.xml? Copy/paste the whole package.xml.
-	we need to add two dependencies:
+	we need to add two dependencies: 
+	(if not added, the request and response message will not be generated)
 		<build_depend>message_generation</build_depend>
 		<exec_depend>message_runtime</exec_depend>
+
 
 6.What is the command to build the new service and generate executable files?
 	first, cd into the catkin_ws folder and do "catkin_make"
