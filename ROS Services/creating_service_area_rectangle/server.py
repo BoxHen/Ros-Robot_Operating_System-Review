@@ -12,7 +12,7 @@ def handle_rectangle_area(req):
 
 def rectangle_area_server():
 	rospy.init_node('rectangle_area_server')
-	s = rospy.Service('rectangle_area_service', RectangleArea, handle_rectangle_area)
+	s = rospy.Service('rectangle_area_service', RectangleAreaService, handle_rectangle_area)
 	print "ready to calculate area"
 	rospy.spin()
 
